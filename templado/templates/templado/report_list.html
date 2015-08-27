@@ -30,6 +30,15 @@
                 </div>
             </div>
         {% endfor %}
+			<div class="report-item">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="buttons">
+							<a class="btn btn-success btn-sm btn-block"  href="{% url 'templado:download-summary-report'%}">Get summary report</a>
+						</div>
+					</div>
+				</div>
+			</div>
     {% else %}
         <div class="row text-content">
             <div class="col-sm-12">

@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^download/(?P<report>\d+)/$', DownloadReport.as_view(), name='download-report'),
     url(r'^help$', HelpView.as_view(), name='help'),
     url(r'^$', TemplatesListView.as_view(), name='template-list'),
+	url(r'^summaryreport$', SummaryReportView.as_view(), name='download-summary-report'),
 )
