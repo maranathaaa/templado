@@ -217,3 +217,18 @@ class SearchView(View):
             found_entries = Report.objects.all()
         return render(request, self.template_name, {'object_list': found_entries,
                                                     'q': query_string, })
+													
+class SummaryReportView(View):
+    def get(self, request, *args, **kwargs):
+        reports = Report.objects.all()
+        merger = PdfFileMerger()
+        for report in reports:
+            try:
+                merger.append(PdfFileReader(report.file.path, "rb"))
+            except PdfReadError as e:
+                traceback.print_exc()
+
+        response = HttpResponse(content_type='application/pdf; charset=utf-8')
+        merger.write(response)
+
+        return response
