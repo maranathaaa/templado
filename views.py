@@ -238,7 +238,7 @@ class SummaryReportView(View):
 
         dt = datetime.now()
         response = HttpResponse(content_type='application/pdf; charset=utf-8')
-        response['Content-Disposition'] = 'attachment; filename="merged_{n}_{y}_{m}_{d}"'.format(n=i, y=dt.year, m=dt.month, d=dt.day)
+        response['Content-Disposition'] = 'inline; filename="merged_{n}_{y}_{m}_{d}"'.format(n=i, y=dt.year, m=dt.month, d=dt.day)
         merger.write(response)
 
         return response
