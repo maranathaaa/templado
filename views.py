@@ -223,7 +223,7 @@ class SearchView(View):
 class SummaryReportView(View):
 
     """
-    Simple search view for reports
+    Return merge summary report for all generated reports
     """
     def get(self, request, *args, **kwargs):
         reports = Report.objects.all()
